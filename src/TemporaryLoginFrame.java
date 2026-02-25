@@ -7,7 +7,12 @@
  *
  * @author noahc
  */
+import java.io.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 public class TemporaryLoginFrame extends javax.swing.JFrame {
+    File accountFile = new File("Accounts.txt");
+    ArrayList<User> UserList = new ArrayList<>();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TemporaryLoginFrame.class.getName());
 
@@ -28,29 +33,79 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         pnl_login = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_title = new javax.swing.JLabel();
+        txt_username = new javax.swing.JTextField();
+        lbl_username = new javax.swing.JLabel();
+        txt_password = new javax.swing.JTextField();
+        lbl_password = new javax.swing.JLabel();
+        btn_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Login");
+        lbl_title.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_title.setText("Login");
+
+        txt_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usernameActionPerformed(evt);
+            }
+        });
+
+        lbl_username.setText("Username:");
+
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
+
+        lbl_password.setText("Password:");
+
+        btn_login.setText("Login");
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_loginLayout = new javax.swing.GroupLayout(pnl_login);
         pnl_login.setLayout(pnl_loginLayout);
         pnl_loginLayout.setHorizontalGroup(
             pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_loginLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_username)
+                            .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_password)))
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(btn_login)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         pnl_loginLayout.setVerticalGroup(
             pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_loginLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_username)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(lbl_password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(btn_login)
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -67,6 +122,75 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usernameActionPerformed
+
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        String username = txt_username.getText().strip();
+        String password = txt_password.getText().strip();
+        if (UserList.isEmpty()) {
+            readFile();   
+        } else if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please ensure all fields are filled in.");
+        } else {
+            boolean validLogin = false;
+            for (int i = 0; i < UserList.size(); i++) {
+                if (UserList.get(i).getUsername().equalsIgnoreCase(username) || UserList.get(i).getPassword().equals(password)) {
+                    validLogin = true;
+                } 
+            }
+            //Login stuff here
+        }
+    }//GEN-LAST:event_btn_loginActionPerformed
+    
+    private void readFile() {
+        try {
+            if (!accountFile.createNewFile()) {
+                BufferedReader reader = new BufferedReader(new FileReader(accountFile.getAbsolutePath()));
+                String line = "";
+                while ((line = reader.readLine()) != null) {
+                    String[] user = line.split(",");
+                    String username = user[0];
+                    String password = user[1];
+                    User newUser = new User(username, password);
+                    UserList.add(newUser);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error creating file.");
+        }
+    }
+    
+    class User {
+        private String username;
+        private String password;
+        
+        User(String username, String password) {
+            this.username = username;
+            this.password = password;
+        }
+        
+        public String getUsername() {
+            return username;
+        }
+        
+        public String getPassword() {
+            return password;
+        }
+        
+        public void setUsername(String x) {
+            this.username = x;
+        }
+        
+        public void setPassword(String x) {
+            this.password = x;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -93,7 +217,12 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_login;
+    private javax.swing.JLabel lbl_password;
+    private javax.swing.JLabel lbl_title;
+    private javax.swing.JLabel lbl_username;
     private javax.swing.JPanel pnl_login;
+    private javax.swing.JTextField txt_password;
+    private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }

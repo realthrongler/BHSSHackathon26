@@ -1,3 +1,8 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,8 +19,26 @@ public class HomeScreen extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreenReal
      */
+    ArrayList<String> events = new ArrayList<String>();
+    
     public HomeScreen() {
         initComponents();
+        String strFileName = "events.txt";//retrieves the file name
+        try {//tries the code
+            BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
+            String strNullChecker;//null checker
+            boolean boolFirstLine = true;//boolean to check if it is the first line
+            while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
+                events.add(strNullChecker);
+            }
+            reader.close();//closes reader
+            for(int i = 0; i < events.size();i++){
+                txt_events.append(events.get(i)+"\n");
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();   
+        }
     }
 
     /**
@@ -28,8 +51,6 @@ public class HomeScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        list_events = new javax.swing.JList<>();
         lbl_upcoming = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
         lbl_title = new javax.swing.JLabel();
@@ -39,6 +60,8 @@ public class HomeScreen extends javax.swing.JFrame {
         lbl_invitations = new javax.swing.JLabel();
         btn_createevent = new javax.swing.JButton();
         btn_accept = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_events = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,13 +69,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(270, 380));
         jPanel1.setMinimumSize(new java.awt.Dimension(270, 380));
         jPanel1.setLayout(null);
-
-        list_events.setBackground(new java.awt.Color(255, 255, 255));
-        list_events.setForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(list_events);
-
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(60, 120, 250, 100);
 
         lbl_upcoming.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_upcoming.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,6 +146,16 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1.add(btn_accept);
         btn_accept.setBounds(60, 450, 90, 31);
 
+        txt_events.setBackground(new java.awt.Color(255, 255, 255));
+        txt_events.setColumns(20);
+        txt_events.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txt_events.setForeground(new java.awt.Color(0, 0, 0));
+        txt_events.setRows(5);
+        jScrollPane1.setViewportView(txt_events);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(60, 120, 250, 110);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,7 +171,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
-        LoginFrame loginScreen = new loginScreen();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
+        LoginFrame loginScreen = new LoginScreen();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
         loginScreen.setVisible(true);//sets the secondScreen jFrame as visible
         this.dispose();//kills this jFrame:
     }//GEN-LAST:event_btn_logoutActionPerformed
@@ -155,7 +181,9 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_declineActionPerformed
 
     private void btn_createeventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createeventActionPerformed
-        // TODO add your handling code here:
+        CreateEventScreen createEventScreen = new CreateEventScreen();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
+        createEventScreen.setVisible(true);//sets the secondScreen jFrame as visible
+        this.dispose();//kills this jFrame:
     }//GEN-LAST:event_btn_createeventActionPerformed
 
     private void btn_acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acceptActionPerformed
@@ -193,12 +221,12 @@ public class HomeScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_decline;
     private javax.swing.JButton btn_logout;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbl_invitations;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JLabel lbl_upcoming;
-    private javax.swing.JList<String> list_events;
     private javax.swing.JList<String> list_invitations;
+    private javax.swing.JTextArea txt_events;
     // End of variables declaration//GEN-END:variables
 }

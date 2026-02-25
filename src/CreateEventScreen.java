@@ -8,6 +8,7 @@
  * @author noahc
  */
 import java.io.*;
+import java.util.ArrayList;
 public class CreateEventScreen extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateEventScreen.class.getName());
@@ -15,8 +16,22 @@ public class CreateEventScreen extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreen1
      */
+    
+    ArrayList<String> events = new ArrayList<String>();
     public CreateEventScreen() {
         initComponents();
+        String strFileName = "events.txt";//retrieves the file name
+        try {//tries the code
+            BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
+            String strNullChecker;//null checker
+            boolean boolFirstLine = true;//boolean to check if it is the first line
+            while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
+                events.add(strNullChecker);
+            }
+            reader.close();//closes reader
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -52,6 +67,11 @@ public class CreateEventScreen extends javax.swing.JFrame {
         drop_month.setBackground(new java.awt.Color(255, 255, 255));
         drop_month.setForeground(new java.awt.Color(0, 0, 0));
         drop_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        drop_month.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drop_monthActionPerformed(evt);
+            }
+        });
         jPanel1.add(drop_month);
         drop_month.setBounds(90, 120, 95, 26);
 
@@ -160,12 +180,26 @@ public class CreateEventScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
-        // TODO add your handling code here:
+        try {//tries to run the code
+            BufferedWriter writer = new BufferedWriter(new FileWriter("events.txt"));//creates writer
+            for(int i = 0;i < events.size();i++){
+                writer.write(events.get(i)+"\n");
+            }
+            writer.write(txt_eventName.getText()+" on "+drop_month.getSelectedItem()+" "+drop_day.getSelectedItem()+" at "+drop_hour.getSelectedItem()+drop_minutes.getSelectedItem()+"\n");//writes user data and goals
+            writer.close();//closes writer
+        } catch (Exception e) {
+            System.out.println("writer fail whoops");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btn_addActionPerformed
 
     private void drop_dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drop_dayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_drop_dayActionPerformed
+
+    private void drop_monthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drop_monthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drop_monthActionPerformed
 
     /**
      * @param args the command line arguments

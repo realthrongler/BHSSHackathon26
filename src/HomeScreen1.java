@@ -28,19 +28,21 @@ public class HomeScreen1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        drop_month = new javax.swing.JComboBox<>();
+        drop_hour = new javax.swing.JComboBox<>();
+        drop_day = new javax.swing.JComboBox<>();
+        drop_minutes = new javax.swing.JComboBox<>();
+        btn_add = new javax.swing.JButton();
+        txt_eventName = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
+        txt_itemsNeeded = new javax.swing.JTextField();
         lbl_money = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_moneyNeeded = new javax.swing.JTextField();
+        lbl_pending = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        list_pending = new javax.swing.JList<>();
+        btn_decline = new javax.swing.JButton();
+        btn_accept = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,55 +50,66 @@ public class HomeScreen1 extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(270, 380));
         jPanel1.setLayout(null);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(54, 17, 92, 22);
+        drop_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        jPanel1.add(drop_month);
+        drop_month.setBounds(54, 17, 92, 22);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(54, 45, 92, 22);
+        drop_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jPanel1.add(drop_hour);
+        drop_hour.setBounds(54, 45, 92, 22);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(152, 17, 72, 22);
+        drop_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jPanel1.add(drop_day);
+        drop_day.setBounds(152, 17, 72, 22);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":00", ":15", ":30", ":45" }));
-        jPanel1.add(jComboBox4);
-        jComboBox4.setBounds(152, 45, 72, 22);
+        drop_minutes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":00", ":15", ":30", ":45" }));
+        jPanel1.add(drop_minutes);
+        drop_minutes.setBounds(152, 45, 72, 22);
 
-        jButton1.setText("Add to schedule");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(80, 180, 116, 23);
+        btn_add.setText("Add to schedule");
+        jPanel1.add(btn_add);
+        btn_add.setBounds(80, 180, 116, 23);
 
-        jTextField1.setText("Event Title");
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(54, 91, 169, 22);
+        txt_eventName.setText("Event Title");
+        jPanel1.add(txt_eventName);
+        txt_eventName.setBounds(54, 91, 169, 22);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 75, 270, 10);
 
-        jTextField2.setText("Items Required");
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(54, 150, 169, 22);
+        txt_itemsNeeded.setText("Items Required");
+        jPanel1.add(txt_itemsNeeded);
+        txt_itemsNeeded.setBounds(54, 150, 169, 22);
 
         lbl_money.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         lbl_money.setText("$");
         jPanel1.add(lbl_money);
         lbl_money.setBounds(42, 126, 6, 15);
 
-        jTextField3.setText("Money Required");
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(54, 119, 169, 22);
+        txt_moneyNeeded.setText("Money Required");
+        jPanel1.add(txt_moneyNeeded);
+        txt_moneyNeeded.setBounds(54, 119, 169, 22);
 
-        jLabel1.setText("Pending hangouts:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(60, 230, 160, 16);
+        lbl_pending.setText("Pending hangouts:");
+        jPanel1.add(lbl_pending);
+        lbl_pending.setBounds(60, 220, 160, 16);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane2.setViewportView(list_pending);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 250, 250, 120);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 240, 250, 100);
+
+        btn_decline.setText("Decline");
+        jPanel1.add(btn_decline);
+        btn_decline.setBounds(30, 350, 72, 23);
+
+        btn_accept.setText("Accept");
+        btn_accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_acceptActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_accept);
+        btn_accept.setBounds(160, 350, 72, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +124,10 @@ public class HomeScreen1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acceptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_acceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,19 +155,21 @@ public class HomeScreen1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_accept;
+    private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_decline;
+    private javax.swing.JComboBox<String> drop_day;
+    private javax.swing.JComboBox<String> drop_hour;
+    private javax.swing.JComboBox<String> drop_minutes;
+    private javax.swing.JComboBox<String> drop_month;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbl_money;
+    private javax.swing.JLabel lbl_pending;
+    private javax.swing.JList<String> list_pending;
+    private javax.swing.JTextField txt_eventName;
+    private javax.swing.JTextField txt_itemsNeeded;
+    private javax.swing.JTextField txt_moneyNeeded;
     // End of variables declaration//GEN-END:variables
 }

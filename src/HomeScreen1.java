@@ -7,6 +7,7 @@
  *
  * @author noahc
  */
+import java.io.*;
 public class HomeScreen1 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeScreen1.class.getName());
@@ -67,6 +68,11 @@ public class HomeScreen1 extends javax.swing.JFrame {
         drop_minutes.setBounds(152, 45, 76, 26);
 
         btn_add.setText("Add to schedule");
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_add);
         btn_add.setBounds(80, 180, 120, 27);
 
@@ -129,6 +135,10 @@ public class HomeScreen1 extends javax.swing.JFrame {
     private void btn_acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acceptActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_acceptActionPerformed
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_addActionPerformed
 
     /**
      * @param args the command line arguments

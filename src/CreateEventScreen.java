@@ -8,14 +8,14 @@
  * @author noahc
  */
 import java.io.*;
-public class HomeScreen1 extends javax.swing.JFrame {
+public class CreateEventScreen extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeScreen1.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateEventScreen.class.getName());
 
     /**
      * Creates new form HomeScreen1
      */
-    public HomeScreen1() {
+    public CreateEventScreen() {
         initComponents();
     }
 
@@ -35,11 +35,12 @@ public class HomeScreen1 extends javax.swing.JFrame {
         drop_minutes = new javax.swing.JComboBox<>();
         btn_add = new javax.swing.JButton();
         txt_eventName = new javax.swing.JTextField();
-        txt_itemsNeeded = new javax.swing.JTextField();
+        txt_invitees = new javax.swing.JTextField();
         lbl_money = new javax.swing.JLabel();
         txt_moneyNeeded = new javax.swing.JTextField();
-        lbl_pending = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbl_title = new javax.swing.JLabel();
+        btn_home = new javax.swing.JButton();
+        txt_itemsNeeded1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +88,7 @@ public class HomeScreen1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_add);
-        btn_add.setBounds(110, 330, 140, 27);
+        btn_add.setBounds(110, 370, 150, 27);
 
         txt_eventName.setBackground(new java.awt.Color(255, 255, 255));
         txt_eventName.setForeground(new java.awt.Color(0, 0, 0));
@@ -95,11 +96,11 @@ public class HomeScreen1 extends javax.swing.JFrame {
         jPanel1.add(txt_eventName);
         txt_eventName.setBounds(100, 210, 169, 26);
 
-        txt_itemsNeeded.setBackground(new java.awt.Color(255, 255, 255));
-        txt_itemsNeeded.setForeground(new java.awt.Color(0, 0, 0));
-        txt_itemsNeeded.setText("Items Required");
-        jPanel1.add(txt_itemsNeeded);
-        txt_itemsNeeded.setBounds(100, 290, 169, 26);
+        txt_invitees.setBackground(new java.awt.Color(255, 255, 255));
+        txt_invitees.setForeground(new java.awt.Color(0, 0, 0));
+        txt_invitees.setText("Invitees");
+        jPanel1.add(txt_invitees);
+        txt_invitees.setBounds(100, 330, 169, 26);
 
         lbl_money.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         lbl_money.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,24 +114,30 @@ public class HomeScreen1 extends javax.swing.JFrame {
         jPanel1.add(txt_moneyNeeded);
         txt_moneyNeeded.setBounds(100, 250, 169, 26);
 
-        lbl_pending.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lbl_pending.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_pending.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_pending.setText("Create New Event");
-        jPanel1.add(lbl_pending);
-        lbl_pending.setBounds(80, 50, 210, 30);
+        lbl_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_title.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_title.setText("Create New Event");
+        jPanel1.add(lbl_title);
+        lbl_title.setBounds(80, 50, 210, 30);
 
-        jButton1.setBackground(new java.awt.Color(210, 110, 10));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Home");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_home.setBackground(new java.awt.Color(210, 110, 10));
+        btn_home.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_home.setForeground(new java.awt.Color(255, 255, 255));
+        btn_home.setText("Home");
+        btn_home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_homeActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(20, 10, 76, 27);
+        jPanel1.add(btn_home);
+        btn_home.setBounds(20, 10, 76, 27);
+
+        txt_itemsNeeded1.setBackground(new java.awt.Color(255, 255, 255));
+        txt_itemsNeeded1.setForeground(new java.awt.Color(0, 0, 0));
+        txt_itemsNeeded1.setText("Items Required");
+        jPanel1.add(txt_itemsNeeded1);
+        txt_itemsNeeded1.setBounds(100, 290, 169, 26);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,9 +153,11 @@ public class HomeScreen1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
+        HomeScreen homeScreen = new HomeScreen();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
+        homeScreen.setVisible(true);//sets the secondScreen jFrame as visible
+        this.dispose();//kills this jFrame:
+    }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         // TODO add your handling code here:
@@ -180,21 +189,22 @@ public class HomeScreen1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new HomeScreen1().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CreateEventScreen().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_home;
     private javax.swing.JComboBox<String> drop_day;
     private javax.swing.JComboBox<String> drop_hour;
     private javax.swing.JComboBox<String> drop_minutes;
     private javax.swing.JComboBox<String> drop_month;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_money;
-    private javax.swing.JLabel lbl_pending;
+    private javax.swing.JLabel lbl_title;
     private javax.swing.JTextField txt_eventName;
-    private javax.swing.JTextField txt_itemsNeeded;
+    private javax.swing.JTextField txt_invitees;
+    private javax.swing.JTextField txt_itemsNeeded1;
     private javax.swing.JTextField txt_moneyNeeded;
     // End of variables declaration//GEN-END:variables
 }

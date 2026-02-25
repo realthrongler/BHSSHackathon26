@@ -10,16 +10,16 @@
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-public class TemporaryLoginFrame extends javax.swing.JFrame {
+public class LoginFrame extends javax.swing.JFrame {
     File accountFile = new File("Accounts.txt");
     ArrayList<User> UserList = new ArrayList<>();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TemporaryLoginFrame.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginFrame.class.getName());
 
     /**
      * Creates new form TemporaryLoginFrame
      */
-    public TemporaryLoginFrame() {
+    public LoginFrame() {
         initComponents();
     }
 
@@ -41,6 +41,9 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
         btn_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnl_login.setMaximumSize(new java.awt.Dimension(360, 600));
+        pnl_login.setMinimumSize(new java.awt.Dimension(360, 600));
 
         lbl_title.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,7 +91,7 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
                     .addGroup(pnl_loginLayout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(btn_login)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         pnl_loginLayout.setVerticalGroup(
             pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,18 +108,18 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
                 .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(btn_login)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -213,7 +216,7 @@ public class TemporaryLoginFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TemporaryLoginFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new LoginFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

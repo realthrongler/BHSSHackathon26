@@ -64,6 +64,10 @@ public class HomeScreen extends javax.swing.JFrame {
         txt_events = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(360, 600));
+        setMinimumSize(new java.awt.Dimension(360, 600));
+        setPreferredSize(new java.awt.Dimension(360, 600));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(240, 140, 40));
         jPanel1.setMaximumSize(new java.awt.Dimension(270, 380));
@@ -87,7 +91,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_logout);
-        btn_logout.setBounds(20, 10, 76, 27);
+        btn_logout.setBounds(20, 10, 72, 23);
 
         lbl_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_title.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,10 +110,8 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_decline);
-        btn_decline.setBounds(220, 450, 90, 31);
+        btn_decline.setBounds(220, 450, 90, 27);
 
-        list_invitations.setBackground(new java.awt.Color(255, 255, 255));
-        list_invitations.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(list_invitations);
 
         jPanel1.add(jScrollPane3);
@@ -132,7 +134,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_createevent);
-        btn_createevent.setBounds(110, 240, 140, 31);
+        btn_createevent.setBounds(110, 240, 140, 27);
 
         btn_accept.setBackground(new java.awt.Color(210, 110, 10));
         btn_accept.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -144,12 +146,10 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_accept);
-        btn_accept.setBounds(60, 450, 90, 31);
+        btn_accept.setBounds(60, 450, 90, 27);
 
-        txt_events.setBackground(new java.awt.Color(255, 255, 255));
         txt_events.setColumns(20);
         txt_events.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txt_events.setForeground(new java.awt.Color(0, 0, 0));
         txt_events.setRows(5);
         jScrollPane1.setViewportView(txt_events);
 
@@ -160,7 +160,7 @@ public class HomeScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +171,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
-        LoginFrame loginScreen = new LoginScreen();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
+        LoginFrame loginScreen = new LoginFrame();//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
         loginScreen.setVisible(true);//sets the secondScreen jFrame as visible
         this.dispose();//kills this jFrame:
     }//GEN-LAST:event_btn_logoutActionPerformed

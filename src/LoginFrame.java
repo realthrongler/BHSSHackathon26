@@ -134,20 +134,21 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_passwordActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        lbl_title.setText("pressed");
+
         String username = txt_username.getText().strip();
         String password = txt_password.getText().strip();
         if (UserList.isEmpty()) {
             readFile();
         }
-        if (UserList.isEmpty()) {
+        
+        if (!UserList.isEmpty()) {
             //I don't want to change all these indents so it's staying like this
         } else if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please ensure all fields are filled in.");
         } else {
             boolean validLogin = false;
             for (int i = 0; i < UserList.size(); i++) {
-                if (UserList.get(i).getUsername().equalsIgnoreCase(username) || UserList.get(i).getPassword().equals(password)) {
+                if (UserList.get(i).getUsername().equalsIgnoreCase(username) && UserList.get(i).getPassword().equals(password)) {
                     validLogin = true;
                 } 
             }

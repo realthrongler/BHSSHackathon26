@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class HomeScreen extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeScreen.class.getName());
-
     /**
      * Creates new form HomeScreenReal
      */
@@ -28,7 +27,19 @@ public class HomeScreen extends javax.swing.JFrame {
             BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
             String strNullChecker;//null checker
             while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
-                events.add(strNullChecker);
+                String[] line = strNullChecker.split(",");
+                String eventName = line[0];
+                int day = Integer.parseInt(line[1]);
+                int hour = Integer.parseInt(line[2]);
+                int minutes = Integer.parseInt(line[3]);
+                float moneyRequired = Float.parseFloat(line[4]);
+                String itemsRequired = line[5];
+                ArrayList<String> invitees = new ArrayList<>() ;
+                int counter = 0;
+                for (int i = 6; i < line.length; i++) {
+                    invitees.add(line[counter]);
+                    counter += 1;
+                }
             }
             reader.close();//closes reader
             for(int i = 0; i < events.size();i++){
@@ -67,9 +78,9 @@ public class HomeScreen extends javax.swing.JFrame {
         private int minutes;
         private float moneyRequired;
         private String itemsRequired;
-        private String[] invitees;
+        private ArrayList<String> invitees;
         
-        Event(String eventName, int day, int hour, int minutes, float moneyRequired, String itemsRequired, String[] invitees) {
+        Event(String eventName, int day, int hour, int minutes, float moneyRequired, String itemsRequired, ArrayList<String> invitees) {
             this.eventName = eventName;
             this.day = day;
             this.hour = hour;
@@ -103,11 +114,11 @@ public class HomeScreen extends javax.swing.JFrame {
             return itemsRequired;
         }
         
-        public String[] getInvitees() {
+        public ArrayList<String> getInvitees() {
             return invitees;
         }
         
-        public void setInvitees(String[] x) {
+        public void setInvitees(ArrayList<String> x) {
             invitees = x;
         } 
     }

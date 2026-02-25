@@ -52,33 +52,33 @@ public class HomeScreen1 extends javax.swing.JFrame {
 
         drop_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         jPanel1.add(drop_month);
-        drop_month.setBounds(54, 17, 92, 22);
+        drop_month.setBounds(54, 17, 96, 26);
 
         drop_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         jPanel1.add(drop_hour);
-        drop_hour.setBounds(54, 45, 92, 22);
+        drop_hour.setBounds(54, 45, 92, 26);
 
         drop_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(drop_day);
-        drop_day.setBounds(152, 17, 72, 22);
+        drop_day.setBounds(152, 17, 76, 26);
 
         drop_minutes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":00", ":15", ":30", ":45" }));
         jPanel1.add(drop_minutes);
-        drop_minutes.setBounds(152, 45, 72, 22);
+        drop_minutes.setBounds(152, 45, 76, 26);
 
         btn_add.setText("Add to schedule");
         jPanel1.add(btn_add);
-        btn_add.setBounds(80, 180, 116, 23);
+        btn_add.setBounds(80, 180, 120, 27);
 
         txt_eventName.setText("Event Title");
         jPanel1.add(txt_eventName);
-        txt_eventName.setBounds(54, 91, 169, 22);
+        txt_eventName.setBounds(54, 91, 169, 26);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 75, 270, 10);
 
         txt_itemsNeeded.setText("Items Required");
         jPanel1.add(txt_itemsNeeded);
-        txt_itemsNeeded.setBounds(54, 150, 169, 22);
+        txt_itemsNeeded.setBounds(54, 150, 169, 26);
 
         lbl_money.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         lbl_money.setText("$");
@@ -87,8 +87,9 @@ public class HomeScreen1 extends javax.swing.JFrame {
 
         txt_moneyNeeded.setText("Money Required");
         jPanel1.add(txt_moneyNeeded);
-        txt_moneyNeeded.setBounds(54, 119, 169, 22);
+        txt_moneyNeeded.setBounds(54, 119, 169, 26);
 
+        lbl_pending.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_pending.setText("Pending hangouts:");
         jPanel1.add(lbl_pending);
         lbl_pending.setBounds(60, 220, 160, 16);
@@ -100,7 +101,7 @@ public class HomeScreen1 extends javax.swing.JFrame {
 
         btn_decline.setText("Decline");
         jPanel1.add(btn_decline);
-        btn_decline.setBounds(30, 350, 72, 23);
+        btn_decline.setBounds(30, 350, 76, 27);
 
         btn_accept.setText("Accept");
         btn_accept.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +110,7 @@ public class HomeScreen1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_accept);
-        btn_accept.setBounds(160, 350, 72, 23);
+        btn_accept.setBounds(160, 350, 76, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

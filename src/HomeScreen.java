@@ -19,7 +19,7 @@ public class HomeScreen extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreenReal
      */
-    ArrayList<String> events = new ArrayList<String>();
+    ArrayList<String> events = new ArrayList<>();
     String LoggedInUser;
     public HomeScreen() {
         initComponents();
@@ -27,7 +27,6 @@ public class HomeScreen extends javax.swing.JFrame {
         try {//tries the code
             BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
             String strNullChecker;//null checker
-            boolean boolFirstLine = true;//boolean to check if it is the first line
             while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
                 events.add(strNullChecker);
             }
@@ -48,7 +47,6 @@ public class HomeScreen extends javax.swing.JFrame {
         try {//tries the code
             BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
             String strNullChecker;//null checker
-            boolean boolFirstLine = true;//boolean to check if it is the first line
             while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
                 events.add(strNullChecker);
             }
@@ -60,6 +58,58 @@ public class HomeScreen extends javax.swing.JFrame {
         }catch(Exception e){
             e.printStackTrace();   
         }
+    }
+    
+    class Event {
+        private String eventName;
+        private int day;
+        private int hour;
+        private int minutes;
+        private float moneyRequired;
+        private String itemsRequired;
+        private String[] invitees;
+        
+        Event(String eventName, int day, int hour, int minutes, float moneyRequired, String itemsRequired, String[] invitees) {
+            this.eventName = eventName;
+            this.day = day;
+            this.hour = hour;
+            this.minutes = minutes;
+            this.moneyRequired = moneyRequired;
+            this.itemsRequired = itemsRequired;
+            this.invitees = invitees;
+        }
+        
+        public String getEventName() {
+            return eventName;
+        }
+        
+        public int getDay() {
+            return day;
+        }
+        
+        public int getHour() {
+            return hour;
+        }
+        
+        public int getMinutes() {
+            return minutes;
+        }
+        
+        public float getMoneyRequired() {
+            return moneyRequired;
+        }
+        
+        public String getItemsRequired() {
+            return itemsRequired;
+        }
+        
+        public String[] getInvitees() {
+            return invitees;
+        }
+        
+        public void setInvitees(String[] x) {
+            invitees = x;
+        } 
     }
 
     /**

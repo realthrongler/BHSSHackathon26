@@ -173,6 +173,7 @@ public class LoginFrame extends javax.swing.JFrame {
                     User newUser = new User(username, password);
                     UserList.add(newUser);
                 }
+                reader.close();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error creating file.");

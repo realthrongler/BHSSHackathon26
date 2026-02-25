@@ -64,8 +64,6 @@ public class CreateEventScreen extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(270, 380));
         jPanel1.setLayout(null);
 
-        drop_month.setBackground(new java.awt.Color(255, 255, 255));
-        drop_month.setForeground(new java.awt.Color(0, 0, 0));
         drop_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         drop_month.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,16 +71,12 @@ public class CreateEventScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(drop_month);
-        drop_month.setBounds(90, 120, 95, 26);
+        drop_month.setBounds(90, 120, 95, 22);
 
-        drop_hour.setBackground(new java.awt.Color(255, 255, 255));
-        drop_hour.setForeground(new java.awt.Color(0, 0, 0));
         drop_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         jPanel1.add(drop_hour);
-        drop_hour.setBounds(90, 150, 92, 26);
+        drop_hour.setBounds(90, 150, 92, 22);
 
-        drop_day.setBackground(new java.awt.Color(255, 255, 255));
-        drop_day.setForeground(new java.awt.Color(0, 0, 0));
         drop_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         drop_day.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,37 +84,31 @@ public class CreateEventScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(drop_day);
-        drop_day.setBounds(200, 120, 76, 26);
+        drop_day.setBounds(200, 120, 72, 22);
 
-        drop_minutes.setBackground(new java.awt.Color(255, 255, 255));
-        drop_minutes.setForeground(new java.awt.Color(0, 0, 0));
         drop_minutes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":00", ":15", ":30", ":45" }));
         jPanel1.add(drop_minutes);
-        drop_minutes.setBounds(200, 150, 76, 26);
+        drop_minutes.setBounds(200, 150, 72, 22);
 
         btn_add.setBackground(new java.awt.Color(210, 110, 10));
         btn_add.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_add.setForeground(new java.awt.Color(255, 255, 255));
-        btn_add.setText("Add to schedule");
+        btn_add.setText("Create New Event");
         btn_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_addActionPerformed(evt);
             }
         });
         jPanel1.add(btn_add);
-        btn_add.setBounds(110, 370, 150, 27);
+        btn_add.setBounds(110, 370, 150, 23);
 
-        txt_eventName.setBackground(new java.awt.Color(255, 255, 255));
-        txt_eventName.setForeground(new java.awt.Color(0, 0, 0));
         txt_eventName.setText("Event Title");
         jPanel1.add(txt_eventName);
-        txt_eventName.setBounds(100, 210, 169, 26);
+        txt_eventName.setBounds(100, 210, 169, 22);
 
-        txt_invitees.setBackground(new java.awt.Color(255, 255, 255));
-        txt_invitees.setForeground(new java.awt.Color(0, 0, 0));
         txt_invitees.setText("Invitees");
         jPanel1.add(txt_invitees);
-        txt_invitees.setBounds(100, 330, 169, 26);
+        txt_invitees.setBounds(100, 330, 169, 22);
 
         lbl_money.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         lbl_money.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,11 +116,9 @@ public class CreateEventScreen extends javax.swing.JFrame {
         jPanel1.add(lbl_money);
         lbl_money.setBounds(90, 260, 7, 15);
 
-        txt_moneyNeeded.setBackground(new java.awt.Color(255, 255, 255));
-        txt_moneyNeeded.setForeground(new java.awt.Color(0, 0, 0));
         txt_moneyNeeded.setText("Money Required");
         jPanel1.add(txt_moneyNeeded);
-        txt_moneyNeeded.setBounds(100, 250, 169, 26);
+        txt_moneyNeeded.setBounds(100, 250, 169, 22);
 
         lbl_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_title.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,13 +137,11 @@ public class CreateEventScreen extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_home);
-        btn_home.setBounds(20, 10, 76, 27);
+        btn_home.setBounds(20, 10, 72, 23);
 
-        txt_itemsNeeded1.setBackground(new java.awt.Color(255, 255, 255));
-        txt_itemsNeeded1.setForeground(new java.awt.Color(0, 0, 0));
         txt_itemsNeeded1.setText("Items Required");
         jPanel1.add(txt_itemsNeeded1);
-        txt_itemsNeeded1.setBounds(100, 290, 169, 26);
+        txt_itemsNeeded1.setBounds(100, 290, 169, 22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

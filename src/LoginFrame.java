@@ -134,10 +134,14 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_passwordActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        lbl_title.setText("pressed");
         String username = txt_username.getText().strip();
         String password = txt_password.getText().strip();
         if (UserList.isEmpty()) {
-            readFile();   
+            readFile();
+        }
+        if (UserList.isEmpty()) {
+            //I don't want to change all these indents so it's staying like this
         } else if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please ensure all fields are filled in.");
         } else {
@@ -147,7 +151,13 @@ public class LoginFrame extends javax.swing.JFrame {
                     validLogin = true;
                 } 
             }
-            //Login stuff here
+            if (validLogin) {
+                HomeScreen homeScreen = new HomeScreen(username);//initializes the SecondScreen jFrame with the parameter of the user's input, this is to pass it to the other jFrame
+                homeScreen.setVisible(true);//sets the secondScreen jFrame as visible
+                this.dispose();//kills this jFrame:
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect username or password. Please try again.");
+            }
         }
     }//GEN-LAST:event_btn_loginActionPerformed
     

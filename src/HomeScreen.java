@@ -20,10 +20,31 @@ public class HomeScreen extends javax.swing.JFrame {
      * Creates new form HomeScreenReal
      */
     ArrayList<String> events = new ArrayList<String>();
-    
+    String LoggedInUser;
     public HomeScreen() {
         initComponents();
         String strFileName = "events.txt";//retrieves the file name
+        try {//tries the code
+            BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
+            String strNullChecker;//null checker
+            boolean boolFirstLine = true;//boolean to check if it is the first line
+            while ((strNullChecker = reader.readLine()) != null) {//runs until the end of the file
+                events.add(strNullChecker);
+            }
+            reader.close();//closes reader
+            for(int i = 0; i < events.size();i++){
+                txt_events.append(events.get(i)+"\n");
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();   
+        }
+    }
+    
+    public HomeScreen(String username) {
+        initComponents();
+        String strFileName = "events.txt";//retrieves the file name
+        this.LoggedInUser = username;
         try {//tries the code
             BufferedReader reader = new BufferedReader(new FileReader(strFileName));//creates reader
             String strNullChecker;//null checker
